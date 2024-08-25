@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #121212;
+            color: #e0e0e0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        header {
+            background-color: #1e1e1e;
+            padding: 20px;
+            text-align: center;
+        }
+
+        header h1 {
+            margin: 0;
+            color: #ffffff;
+        }
+
+        main {
+            flex-grow: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        #content {
+            background-color: #1e1e1e;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+            width: 100%;
+            max-width: 400px;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        form input[type="text"],
+        form input[type="password"],
+        form input[type="email"],
+        form textarea {
+            width: 95%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #333;
+            border-radius: 4px;
+            background-color: #2e2e2e;
+            color: #e0e0e0;
+        }
+
+        form .btn-submit {
+            background-color: #2e0e5f;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-top: 10px;
+            transition: background-color 0.3s ease;
+        }
+
+        form .btn-submit:hover {
+            background-color: #3700b3;
+        }
+
+
+        select {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #333;
+            border-radius: 4px;
+            background-color: #2e2e2e;
+            color: #e0e0e0;
+            font-size: 16px;
+            appearance: none;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            background-image: url("data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%204%205'%3E%3Cpath%20fill='%23e0e0e0'%20d='M2%200L0%202h4zM2%205L0%203h4z'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 10px center;
+            background-size: 10px;
+            cursor: pointer;
+        }
+
+        select:focus {
+            outline: none;
+            border-color: #6200ea;
+            box-shadow: 0 0 5px rgba(98, 0, 234, 0.5);
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Registra tu mascota</h1>
+    </header>
+    <main>
+        {% block content %}
+        <div id="content">
+            <form method="post">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button class="btn-submit" type="submit">Sign Up</button>
+            </form>
+        </div>
+        {% endblock %}
+
+    </main>
+
+</body>
+
+</html>

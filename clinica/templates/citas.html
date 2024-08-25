@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #1f1d1d;
+            
+            color: rgb(17, 16, 16);
+            
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        
+        .citas-container {
+            width: 100%;
+            max-width: 800px;
+            padding: 20px;
+        }
+
+        
+        .cita {
+            background-color: #241390;
+            padding: 15px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .cita p {
+            margin: 5px 0;
+            font-size: 16px;
+        }
+
+        .cita p strong {
+            color: #0c011c;
+    
+            display: inline-block;
+            width: 100px;
+            
+        }
+
+    </style>
+</head>
+
+<body>
+    <div class="citas-container">
+        {% for i in citas %}
+        <div class="cita">
+            <p><strong>Motivo:</strong> {{ i.description }}</p>
+            <p><strong>Mascota:</strong> {{ i.pet }}</p>
+            <p><strong>Doctor:</strong> {{ i.doctor }}</p>
+            <p><strong>Fecha:</strong> {{ i.date }}</p>
+        </div>
+        {% endfor %}
+    </div>
+</body>
+
+</html>
