@@ -17,6 +17,7 @@ from django.dispatch import receiver
 from django.views.decorators.csrf import csrf_exempt
 from django.http import JsonResponse
 
+from django.core import signing
 @csrf_exempt
 def logind(request):
     if request.method == "POST":
@@ -103,8 +104,8 @@ def citas(request):
 @login_required
 @staff_member_required
 def doctor(request: HttpRequest):
-    form = DoctorForm()
-    return render(request, "doc.html", {"form": form})
+
+    return HttpResponse("JH")
 
 @csrf_exempt
 def signup(request):
