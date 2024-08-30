@@ -98,6 +98,8 @@ def pet(request: HttpRequest):
 def citas(request):
     citas = Cita.objects.filter(client=User.objects.get(id=request.session["_auth_user_id"]))
     serializer = CitaSerializer(citas, many=True)
+    
+    
     return Response(serializer.data)
 
 @csrf_exempt
